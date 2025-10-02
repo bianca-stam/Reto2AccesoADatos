@@ -15,11 +15,25 @@ import com.thoughtworks.xstream.persistence.XmlArrayList;
 public class PruebaEmpresaConPersistencia {
     public static void main(String[] args) {
         // --- CONFIGURACIÓN DE XSTREAM ---
-        XStream xstream = new XStream(new DomDriver());
-        xstream.addPermission(AnyTypePermission.ANY); // permite cualquier clase
-        xstream.alias("empleado", Empleado.class);
-        xstream.alias("empresa", Empresa.class);
+        XStream xstream1 = new XStream(new DomDriver());
+        xstream1.addPermission(AnyTypePermission.ANY); // permite cualquier clase
+        xstream1.alias("empleado", Empleado.class);
+        xstream1.alias("empresa", Empresa.class);
 
+        xstream1.aliasField("cif", Empresa.class, "idEmpresa");
+		xstream1.useAttributeFor(Empresa.class, "idEmpresa");
+		
+		
+		xstream1.aliasField("nre", Empleado.class, "id");
+		xstream1.useAttributeFor(Empleado.class, "id");
+		
+		xstream1.aliasField("cargo", Empleado.class, "titulo");
+		xstream1.aliasField("alta", Empleado.class, "fechaAlta");
+		
+		xstream1.aliasField("web", Empleado.class, "urle");
+		xstream1.aliasField("tipo", Empleado.class, "esPYME");
+		
+        
         // --- CREACIÓN DE EMPLEADOS ---
         Empleado e1 = new Empleado();
         e1.setId(12);

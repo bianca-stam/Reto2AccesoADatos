@@ -34,6 +34,8 @@ public class Alumno {
 	 * 
 	 * 
 	 */
+	
+	public Alumno() {}
 	public Alumno(String nombre, String apellidos, Date anoNacimiento,
 			String calle, int numero) {
 		this.nombre = nombre;

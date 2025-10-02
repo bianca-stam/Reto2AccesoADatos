@@ -13,6 +13,7 @@ public class Producto {
 	private String nombre;
 	private float precio;
 	
+	public Producto() {}
 	
 	public Producto(int id, String nombre, float precio) {
 		super();

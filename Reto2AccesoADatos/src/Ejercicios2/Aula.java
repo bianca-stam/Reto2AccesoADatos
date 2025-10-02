@@ -23,6 +23,7 @@ public class Aula {
     private List<Alumno> alumnos;
     private Date fechaCreacion;
     
+    public Aula(){  }
 
     /**
      * Constructor del Almac�n con un determinado tamano
@@ -30,8 +31,6 @@ public class Aula {
      */
     public Aula(int tamano){
         alumnos=new ArrayList<Alumno>(tamano);
-        
-        
     }
    
     /**

@@ -14,8 +14,8 @@ public class PruebaEmpresa {
 		// Le damos los permisos para las dos clases
 		xstream1.allowTypes(new Class[] { Empresa.class , Empleado.class });
 		
+	// ---------------GENERAMOS LOS EMPLEADOS---------------
 		Empleado e1 = new Empleado();
-		
 		e1.setId(12);
 		e1.setNombre("Juan");
 		e1.setTitulo("Analista");
@@ -23,19 +23,17 @@ public class PruebaEmpresa {
 		Date fecha1 = new Date("08/05/2015");
 		e1.setFechaAlta(fecha1);
 		
-		
         Empleado e2 = new Empleado();
-		
 		e2.setId(14);
 		e2.setNombre("Pedro");
 		e2.setTitulo("Programador");
 		e2.setActivo(true);
 		e2.setFechaAlta(fecha1);
         
-		
-		
+	// ---------------GENERAMOS LA EMPRESA---------------
         Empresa emp1 = new Empresa();
-        
+        emp1.setDireccion("calle empresa");
+        emp1.setEsPYME(true);
         URL nuevaURL;
 		try {
 			nuevaURL = new URL("http://www.miempresa.es");
@@ -43,13 +41,27 @@ public class PruebaEmpresa {
 		} catch (MalformedURLException e) {
 			e.printStackTrace();
 		}
-        emp1.setEsPYME(true);
+              
         
+     // ---------------AÑADIMOS EMPLEADOS A EMPRESA---------------
         emp1.addEmpleado(e1);
         emp1.addEmpleado(e2);
         
         xstream1.alias("empleado", Empleado.class);
 		xstream1.alias("empresa", Empresa.class);
+		
+		xstream1.aliasField("cif", Empresa.class, "idEmpresa");
+		xstream1.useAttributeFor(Empresa.class, "idEmpresa");
+		
+		
+		xstream1.aliasField("nre", Empleado.class, "id");
+		xstream1.useAttributeFor(Empleado.class, "id");
+		
+		xstream1.aliasField("cargo", Empleado.class, "titulo");
+		xstream1.aliasField("alta", Empleado.class, "fechaAlta");
+		
+		xstream1.aliasField("web", Empleado.class, "urle");
+		xstream1.aliasField("tipo", Empleado.class, "esPYME");
         
         //Convertimos el objeto persona a xml invocando el método toXML
   		String xml=xstream1.toXML(emp1);
@@ -63,4 +75,6 @@ public class PruebaEmpresa {
   							+ empRecons.toString());
        
 	    }
+	
+		
 }

@@ -39,6 +39,12 @@ public class PruebaCafe {
 		// Le ponemos alias
 		xstream1.alias("cafe", Cafe.class); // Aparece 'cafe' en vez de 'Ejercicios2.Cafe'
 		xstream1.alias("proveedor", Proveedor.class); // Aparece 'proveedor' en vez de 'Ejercicios2.Proveedor'
+		xstream1.aliasField("cif", Proveedor.class, "identificador");
+		xstream1.useAttributeFor(Proveedor.class, "identificador");
+		xstream1.aliasField("empresa", Proveedor.class, "nombre");
+		xstream1.useAttributeFor(Proveedor.class, "nombre");
+		
+		xstream1.aliasField("marca", Cafe.class, "nombre");
 		
 		//Convertimos el objeto persona a xml invocando el método toXML
 		String xml=xstream1.toXML(proveedor1);

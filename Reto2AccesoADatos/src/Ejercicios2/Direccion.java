@@ -12,6 +12,8 @@ public class Direccion {
 
 	String calle;
 	int numero;
+	
+	public Direccion() {}
 
 	public Direccion(String calle, int numero) {
 		this.calle = calle;

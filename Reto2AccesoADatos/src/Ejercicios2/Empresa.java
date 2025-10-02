@@ -23,6 +23,15 @@ public class Empresa{
 	private ArrayList<Empleado> empleados;
 	private URL urle;
 	private boolean esPYME;
+	private Producto producto; // Añadido
+
+	public Producto getProducto() { // Añadido
+		return producto;
+	}
+
+	public void setProducto(Producto producto) { // Añadido
+		this.producto = producto;
+	}
 
 	public Empresa() {
 		super();
