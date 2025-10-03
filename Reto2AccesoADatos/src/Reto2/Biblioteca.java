@@ -20,6 +20,10 @@ public class Biblioteca {
 	public List<Libro> getContent() {
 	        return libro;
 	}
+	
+	public nombreBiblioteca getNombreBiblio() {
+	    return nombreBiblio;
+	}
 }
 
 

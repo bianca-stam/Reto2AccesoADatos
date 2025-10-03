@@ -12,12 +12,14 @@ import com.thoughtworks.xstream.io.xml.DomDriver;
 import com.thoughtworks.xstream.persistence.FilePersistenceStrategy;
 import com.thoughtworks.xstream.persistence.PersistenceStrategy;
 import com.thoughtworks.xstream.persistence.XmlArrayList;
+import com.thoughtworks.xstream.security.AnyTypePermission;
 
 public class persistenciaXML {
 	public static void main(String[] args) {
 		
 		XStream xstream1 = new XStream(new DomDriver());
-		xstream1.allowTypes(new Class[] { Libro.class, Biblioteca.class });
+		xstream1.allowTypes(new Class[] { Libro.class, Biblioteca.class, nombreBiblioteca.class });
+		xstream1.addPermission(AnyTypePermission.ANY);
 		
 		Libro libro1 = new Libro();
 		Libro libro2 = new Libro();
@@ -46,25 +48,33 @@ public class persistenciaXML {
 		b1.add(libro2);
 		b1.add(libro3); 
        
-		PersistenceStrategy strategy = new FilePersistenceStrategy(new File("."));
+		PersistenceStrategy strategy = new FilePersistenceStrategy(new File("."), xstream1);
 		XmlArrayList lista = new XmlArrayList(strategy);
+		
+		// Guardar la biblioteca
 		lista.add(b1);
 		
-		// Guardar biblioteca completa en un XML (toXML)
-		try (FileWriter writer = new FileWriter("biblioteca.xml")) {
-			xstream1.toXML(b1, writer);
-			System.out.println("Biblioteca exportada a biblioteca.xml");
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
-		
-		// Leer de vuelta el XML (fromXML)
-		try (FileReader reader = new FileReader("biblioteca.xml")) {
-			Biblioteca bibliotecaLeida = (Biblioteca) xstream1.fromXML(reader);
-			System.out.println("Biblioteca importada desde XML: " + bibliotecaLeida.getContent());
-		} catch (IOException e) {
-			e.printStackTrace();
-		}
+        System.out.println("Biblioteca guardada en persistencia.");
+        
+        // --- Recuperación de la biblioteca ---
+        XmlArrayList listaRecuperar = new XmlArrayList(strategy);
+        System.out.println("Recuperando objetos persistidos:");
+        
+        for (Object obj : listaRecuperar) {
+            if (obj instanceof Biblioteca) {
+                Biblioteca bRecuperada = (Biblioteca) obj;
+                
+                // Imprimir nombre de la biblioteca
+                System.out.println("Biblioteca recuperada: " + bRecuperada.getNombreBiblio().getName());
+                
+                // Imprimir libros
+                System.out.println("Libros:");
+                bRecuperada.getContent().forEach(libro -> 
+                    System.out.println("- " + libro.getTitulo() + " de " + libro.getAutor() +
+                                       " (" + libro.getAño() + "), ventas: " + libro.getVentas())
+                );
+            }
+        }
 		
 	}
 }
