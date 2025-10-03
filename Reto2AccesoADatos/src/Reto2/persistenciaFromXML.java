@@ -24,7 +24,7 @@ public class persistenciaFromXML {
         
         try {
             // Recuperar la lista de objetos desde XML usando persistencia
-            Biblioteca biblioRecons = (Biblioteca) estrategia.read();
+            Biblioteca biblioRecons = (Biblioteca) estrategia.get(archivo);
 
             if (biblioRecons != null) {
                 // Iterar sobre los libros

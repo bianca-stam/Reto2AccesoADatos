@@ -1,5 +1,7 @@
 package Ejercicios2;
 
+//Ejercicio nr.4 del PDF "Ejercicios2"
+
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.util.Date;

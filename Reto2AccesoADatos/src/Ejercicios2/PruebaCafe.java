@@ -44,9 +44,15 @@ public class PruebaCafe {
 		xstream1.aliasField("empresa", Proveedor.class, "nombre");
 		xstream1.useAttributeFor(Proveedor.class, "nombre");
 		
+		// Hacemos que los elementos de la lista se serialicen directamente
+		// como hijos del nodo padre, sin el contenedor extra de <cafes>
+		xstream1.addImplicitCollection(Proveedor.class, "cafes");
+		
 		xstream1.aliasField("marca", Cafe.class, "nombre");
 		
+		
 		//Convertimos el objeto persona a xml invocando el método toXML
+		
 		String xml=xstream1.toXML(proveedor1);
 		
 		System.out.println("Objeto convertido a XML mediante toXML: \n" + xml);		

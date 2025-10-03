@@ -1,5 +1,7 @@
 package Ejercicios2;
 
+//Ejercicio nr.2 del PDF "Ejercicios2"
+
 import java.io.FileInputStream;
 import java.io.FileOutputStream;
 

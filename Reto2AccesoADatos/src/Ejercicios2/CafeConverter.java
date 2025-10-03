@@ -62,14 +62,14 @@ public class CafeConverter implements Converter{
 		reader.moveDown();
 		//System.out.println(reader.getValue().trim());
 		//Es necesario quitar los espacios en blanco antes y despu�s del valor para que no de excepcion al convertir cadenas a numeros
-		cafe.setTotal(new Integer(reader.getValue().trim()));
+		cafe.setTotal(Integer.parseInt(reader.getValue().trim()));
 		reader.moveDown();
 		//System.out.println(reader.getValue().trim());
-		cafe.setVentas(new Integer(reader.getValue().trim()));
+		cafe.setVentas(Integer.parseInt(reader.getValue().trim()));
 		reader.moveUp();
 		reader.moveDown();
 		//System.out.println(reader.getValue().trim());
-		cafe.setPrecio(new Float(reader.getValue().trim()));
+		cafe.setPrecio(Float.parseFloat(reader.getValue().trim()));
 		return cafe;
 	}
 

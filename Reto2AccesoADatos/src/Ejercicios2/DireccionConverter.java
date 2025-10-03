@@ -22,7 +22,7 @@ public class DireccionConverter implements SingleValueConverter {
     //Indicamos al convertidor como obtener un objeto Producto a partir de un String
 	public Object fromString(String representacion) {
 		    String[] partes=representacion.split(",");
-    	    Direccion dir=new Direccion(partes[0],new Integer(partes[1]));    	    
+    	    Direccion dir=new Direccion(partes[0],Integer.parseInt(partes[1]));    	    
             return dir;
     }
 

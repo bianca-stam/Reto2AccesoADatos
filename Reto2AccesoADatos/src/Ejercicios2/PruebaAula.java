@@ -1,5 +1,7 @@
 package Ejercicios2;
 
+//Ejercicio nr.6 y 7 del PDF "Ejercicios2"
+
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
@@ -43,6 +45,13 @@ public class PruebaAula {
 		// Hacemos que los elementos de la lista se serialicen directamente
 		// como hijos del nodo padre, sin el contenedor extra de <alumnos>
 		xstream1.addImplicitCollection(Aula.class, "alumnos"); 
+		
+		// Ejercicio 7: ------------------------------------------------------
+		// Usamos DireccionConverter para que la direccion salga como atributo
+		xstream1.registerConverter(new DireccionConverter());
+		// Ponemos la direccion como atributo de alumo
+		xstream1.useAttributeFor(Alumno.class, "direccion");
+		// Fin ejercicio7 ----------------------------------------------------
 		
 		String xml=xstream1.toXML(aula1);
   		
