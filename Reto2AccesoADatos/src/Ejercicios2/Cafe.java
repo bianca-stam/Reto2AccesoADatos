@@ -1,5 +1,7 @@
 package Ejercicios2;
 
+//Clase que viene por defecto del .zip de ejercicios
+
 /**
  * @descrition Clase para representar objetos Cafe del modelo
  * @author Laura

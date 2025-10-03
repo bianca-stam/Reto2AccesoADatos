@@ -1,5 +1,7 @@
 package Ejercicios2;
 
+// Clase que viene por defecto del .zip de ejercicios
+
 import java.net.URL;
 import java.util.ArrayList;
 

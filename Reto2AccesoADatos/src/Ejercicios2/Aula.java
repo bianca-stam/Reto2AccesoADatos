@@ -6,6 +6,8 @@
 
 package Ejercicios2;
 
+//Clase que viene por defecto del .zip de ejercicios
+
 import java.text.DateFormat;
 import java.util.ArrayList;
 import java.util.Date;

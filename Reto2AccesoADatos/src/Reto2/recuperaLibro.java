@@ -1,5 +1,7 @@
 package Reto2;
 
+//Apartado 1 - Punto 1.1(Parte2/2)
+
 import java.io.File;
 import java.io.FileReader;
 

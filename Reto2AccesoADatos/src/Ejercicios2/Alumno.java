@@ -5,6 +5,8 @@
  */
 package Ejercicios2;
 
+// Clase que viene por defecto del .zip de ejercicios
+
 import java.text.DateFormat;
 import java.util.Date;
 import java.util.Locale;

@@ -1,5 +1,7 @@
 package Ejercicios2;
 
+// Ejercicio nr.4, apartado a del PDF "Ejercicios2"
+
 import java.io.File;
 import java.net.MalformedURLException;
 import java.net.URL;
@@ -62,7 +64,7 @@ public class PruebaEmpresaConPersistencia {
         emp1.addEmpleado(e2);
 
         // --- PERSISTENCIA ---
-        PersistenceStrategy strategy = new FilePersistenceStrategy(new File("."), xstream);
+        PersistenceStrategy strategy = new FilePersistenceStrategy(new File("."), xstream1);
         XmlArrayList listaGuardar = new XmlArrayList(strategy);
 
         // Guardamos la empresa

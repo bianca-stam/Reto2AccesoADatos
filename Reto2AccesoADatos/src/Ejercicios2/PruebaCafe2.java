@@ -1,6 +1,6 @@
 package Ejercicios2;
 
-// Ejercicio nr.1 del PDF "Ejercicios2"
+// Ejercicio nr.1 con modificaciones del ej.8 del PDF "Ejercicios2"
 
 import com.thoughtworks.xstream.XStream;
 import com.thoughtworks.xstream.io.xml.DomDriver;

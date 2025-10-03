@@ -1,5 +1,7 @@
 package Ejercicios2;
 
+//Ejercicio nr.8 del PDF "Ejercicios2"
+
 import com.thoughtworks.xstream.converters.Converter;
 import com.thoughtworks.xstream.converters.MarshallingContext;
 import com.thoughtworks.xstream.converters.UnmarshallingContext;

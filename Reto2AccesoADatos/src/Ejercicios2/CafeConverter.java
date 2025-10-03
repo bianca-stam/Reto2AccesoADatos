@@ -1,5 +1,7 @@
 package Ejercicios2;
 
+//Clase que viene por defecto del .zip de ejercicios
+
 import com.thoughtworks.xstream.converters.Converter;
 import com.thoughtworks.xstream.converters.MarshallingContext;
 import com.thoughtworks.xstream.converters.UnmarshallingContext;

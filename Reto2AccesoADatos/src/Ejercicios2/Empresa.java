@@ -1,6 +1,6 @@
 package Ejercicios2;
 
-// Modificado para realizar el ejercicio 5
+// Clase que viene por defecto del .zip de ejercicios, pero modificado para realizar el ejercicio 5
 
 import java.net.URL;
 import java.util.ArrayList;
@@ -28,7 +28,7 @@ public class Empresa{
 	private Producto producto; // Añadido
 
 	public Producto getProducto() { // Añadido
-		return producto;
+		return producto; 
 	}
 
 	public void setProducto(Producto producto) { // Añadido
